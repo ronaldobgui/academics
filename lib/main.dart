@@ -1,3 +1,4 @@
+import 'package:academics/screen/dashboard/owner_screen_list.dart';
 import 'package:academics/screen/home/home_screen.dart';
 import 'package:academics/screen/owner_add_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => const HomeScreen(),
         '/ownerAdd': (context) => const OwnerAddScreen(),
+        '/ownerList': (context) => const OwnerListScreen(),
       },
     );
   }

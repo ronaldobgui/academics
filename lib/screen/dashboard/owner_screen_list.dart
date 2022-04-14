@@ -1,30 +1,32 @@
-import 'dart:convert';
-
-import 'package:academics/model/academic_service.dart';
+import 'package:academics/model/units/owner.dart';
+import 'package:academics/model/units/owner_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class AcademicList extends StatelessWidget {
-  const AcademicList({Key? key}) : super(key: key);
+class OwnerListScreen extends StatelessWidget {
+  const OwnerListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var service = AcademicService();
+    var service = OwnerService();
     return Scaffold(
+      backgroundColor: Colors.grey.shade200,
       body: StreamBuilder<QuerySnapshot>(
-        stream: service.getAcademicList(),
+        stream: service.getOwners(),
         builder: (context, snapshot) {
           var data = snapshot.data;
           if (data != null) {
             final docs = data.docs;
             return ListView.separated(
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(
-                    docs[index].get('name') ?? '',
-                  ),
-                  subtitle: Text(
-                    docs[index].get('email') ?? '',
+                return Card(
+                  child: ListTile(
+                    title: Text(
+                      docs[index].get('name'),
+                    ),
+                    subtitle: Text(
+                      docs[index].get('email'),
+                    ),
                   ),
                 );
               },

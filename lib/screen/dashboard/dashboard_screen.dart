@@ -1,41 +1,34 @@
 import 'package:academics/screen/dashboard/item_dashboard.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({Key? key}) : super(key: key);
 
-  final ItemDashboard item1 = const ItemDashboard(
+  final ItemDashboard item0 = const ItemDashboard(
     title: 'Unidades',
     subTitle: 'Casas dos Moradores',
     event: '0',
     image: './assets/images/home.png',
+  );
+
+  final ItemDashboard item1 = const ItemDashboard(
+    title: 'Usuario',
+    subTitle: 'Registro de condomínio',
+    event: '1',
+    image: './assets/images/person.png',
   );
 
   final ItemDashboard item2 = const ItemDashboard(
-    title: 'Food',
-    subTitle: 'Food',
-    event: '0',
-    image: './assets/images/food.png',
-  );
-
-  final ItemDashboard item3 = const ItemDashboard(
-    title: 'Unidades',
-    subTitle: 'Casas dos Moradores',
-    event: '0',
-    image: './assets/images/home.png',
-  );
-
-  final ItemDashboard item4 = const ItemDashboard(
-    title: 'Unidades',
-    subTitle: 'Casas dos Moradores',
-    event: '0',
-    image: './assets/images/home.png',
+    title: 'Moradores',
+    subTitle: 'Listagem de moradores',
+    event: '2',
+    image: './assets/images/persons.png',
   );
 
   @override
   Widget build(BuildContext context) {
     List<ItemDashboard> list = [
+      item0,
       item1,
       item2,
     ];
@@ -76,8 +69,12 @@ class Dashboard extends StatelessWidget {
   }
 
   callOwner(BuildContext context, int index) {
-    if (index == 1) {
-      Navigator.of(context).pushNamed('/ownerAdd');
+    var handler = {
+      1: '/ownerAdd',
+      2: '/ownerList',
+    };
+    if (handler[index] != null) {
+      Navigator.of(context).pushNamed(handler[index]!);
     }
   }
 }
