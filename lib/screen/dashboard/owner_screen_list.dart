@@ -1,4 +1,3 @@
-import 'package:academics/model/units/owner.dart';
 import 'package:academics/model/units/owner_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
