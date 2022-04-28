@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => const HomeScreen(),
         '/ownerAdd': (context) => const OwnerAddScreen(),
-        '/ownerList': (context) => const OwnerListScreen(),
       },
     );
   }

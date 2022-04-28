@@ -1,13 +1,10 @@
 class Owner {
   late String name;
-  late String? email;
+  late String email;
   late String phone;
+  late String? id;
 
-  Owner(
-    this.name,
-    this.email,
-    this.phone,
-  );
+  Owner(this.name, this.email, this.phone, {this.id});
 
   Map<String, dynamic> toMap() {
     return {

@@ -1,6 +1,6 @@
-import 'package:academics/screen/academic_add_screen.dart';
-import 'package:academics/screen/academic_list_screen.dart';
+// import 'package:academics/screen/academic_add_screen.dart';
 import 'package:academics/screen/dashboard/dashboard_screen.dart';
+import 'package:academics/screen/dashboard/owner_screen_list.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedPage = 2;
+  int _selectedPage = 1;
 
   List<Widget> pages = [];
 
@@ -18,9 +18,9 @@ class _HomeScreenState extends State<HomeScreen> {
   initState() {
     super.initState();
     // pages.add(const FirstPage());
-    pages.add(const AcademicAddScreen());
+    // pages.add(const AcademicAddScreen());
     // pages.add(const SecondPage());
-    pages.add(const AcademicList());
+    pages.add(const OwnerListScreen());
     //
     pages.add(const Dashboard());
   }
@@ -28,21 +28,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('CondApp'),
-      ),
       body: IndexedStack(
         children: pages,
         index: _selectedPage,
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-            ),
-            label: "Início",
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(
+          //     Icons.home,
+          //   ),
+          //   label: "Início",
+          // ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.category,
